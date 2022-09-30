@@ -1,56 +1,42 @@
+//	Lab 5-11 : Problem Definition
+//	Make a program that find the prime numbers in the given range.
+//		example) find the prime numbers in the range [1..100]
+//		2, 3, 5, 7, ... , 97
+
 #include <iostream>
-int inputValidate(int begin, int end);
-void getListPrime(int begin, int end);
+using namespace std;
 
-int main()
-{
-    using namespace std;
-    int begin, end;
-    
-    cout << "Enter beginning and end: ";
+int inputvalid(int b, int e);
+void printPrime(int begin, int end);
+
+int main() {
+  int begin, end;
+  int i, p;
+
+  do {
+    cout << "Enter your range [from, to] \n";
     cin >> begin >> end;
-    int check = inputValidate(begin, end);
-
-    if (check == 0)
-    {
-        exit(0);
-    }
-
-    getListPrime(begin, end);
+  } while (inputvalid(begin, end));
+  // } while (begin >= end || begin < 2 || end < 0);  
+  printPrime(begin, end);
 }
 
-int inputValidate(int begin, int end)
-{
-    if (begin > end || begin < 2 || end < 0)
-    {
-        return 0;
-    }
-    else
-    {
-        return 1;
-    }   
+int inputvalid(int b, int e) {
+  if (b >= e || b < 2 || e < 0)
+    return 1;
+  else
+    return 0;
 }
-
-void getListPrime(int begin, int end)
-{
-    int flag;
-    int i, j;
-    using namespace std;
-    for (i = begin; i <= end; i++)
-    {
-        for (j = 2; j <= (i/2); j++)
-        {
-            if (i % j == 0)
-            {
-                break;
-            }
-        }
-        if (j > (i/2))
-        {
-            cout << i << " is prime number\n";
-        }
-        
-        
-    }
-    return;
+void printPrime(int begin, int end) {
+  int p, i;
+  for (p = begin; p <= end; p++) {
+    if (p == 0 || p == 1)
+      continue;
+    //* for(i=2; i<p; i++)
+    for (i = 2; i <= (p / 2); i++)
+      if (p % i == 0)
+        break;
+    if (i > (p / 2))
+      cout << " Prime number : " << p << endl;
+  }
 }
