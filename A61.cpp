@@ -1,6 +1,6 @@
 #include <iostream>
 int inputValidate(int begin, int end);
-int  getListPrime(int begin, int end);
+void getListPrime(int begin, int end);
 
 int main()
 {
@@ -31,7 +31,7 @@ int inputValidate(int begin, int end)
     }   
 }
 
-int getListPrime(int begin, int end)
+void getListPrime(int begin, int end)
 {
     int flag;
     int i, j;
@@ -52,6 +52,5 @@ int getListPrime(int begin, int end)
         
         
     }
-    
-    return 0;
+    return;
 }
